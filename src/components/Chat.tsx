@@ -29,14 +29,15 @@ const Chat: React.FC = () => {
 
   const initChatBot = async () => {
     const openai = new OpenAI({
-      apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+      apiKey: process.env.OPENAI_API_KEY,
       dangerouslyAllowBrowser: true,
     });
+    
 
     // Create an assistant
     const assistant = await openai.beta.assistants.create({
       name: "Hockey Expert",
-      instructions: "You are a hockey expert. You specialize in helping others learn about hockey.",
+      instructions: "You are a high school math teacher. You specialize in helping others learn about math.",
       tools: [{ type: "code_interpreter" }],
       model: "gpt-4-1106-preview",
     });
